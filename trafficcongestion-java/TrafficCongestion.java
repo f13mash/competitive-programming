@@ -1,0 +1,21 @@
+public class TrafficCongestion {
+
+	public int theMinCars(int th) {
+		
+		long p0 = 1, p1 = 1;
+		long mod = 1000000007;
+		
+		if(th == 0 || th == 1) 
+			return 1;
+		
+		for(int i=2;i<=th;i++) {
+			long p3 = p1 + 2*p0;
+			p3 %= mod;
+			p0 = p1;
+			p1 = p3;
+		}
+		
+		return (int) p1;
+	}
+
+}
